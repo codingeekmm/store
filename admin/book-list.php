@@ -39,11 +39,11 @@
 <ul class="list">
   <?php while($row = mysqli_fetch_assoc($result)): ?>
     <li>
-      <? if(!is_dir("covers/{$row['cover']}") and file_exists("covers/{$row['cover']}")): ?>
+      <?php if(!is_dir("covers/{$row['cover']}") and file_exists("covers/{$row['cover']}")): ?>
       <img src="covers/<?php echo $row['cover'] ?>" alt="" align="right" height="140">
-      <? else: ?>
+      <?php else: ?>
       <img src="covers/no-cover.gif" alt="" align="right" height="140">
-      <? endif; ?>
+      <?php endif; ?>
 
       <b><?php echo $row['title'] ?></b>
       <i>by <?php echo $row['author'] ?></i>
@@ -61,17 +61,17 @@
 <a href="book-new.php" class="new">New Book</a>
 
 <div class="paging">
-	<? if($prev < 0): ?>
+	<?php if($prev < 0): ?>
 	<span>&laquo; Previous</span>
-	<? else: ?>
+	<?php else: ?>
 	<a href="?start=<?= $prev ?>">&laquo; Previous</a>
-	<? endif; ?>
+	<?php endif; ?>
 
-	<? if($next >= $total): ?>
+	<?php if($next >= $total): ?>
 	<span>Next &raquo;</span>
-	<? else: ?>
+	<?php else: ?>
 	<a href="?start=<?= $next ?>">Next &raquo;</a>
-	<? endif; ?>
+	<?php endif; ?>
 </div>
 <br style="clear:both">
 
